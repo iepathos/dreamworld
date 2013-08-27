@@ -1,0 +1,75 @@
+{% extends 'site_base.html' %}
+
+{% load endless %}
+
+{% block head_title %}
+	Map of Cities by County
+{% endblock %}
+
+{% block extra_head %}
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+
+{% endblock %}
+
+{% block body %}
+<h1>Cities by County</h1>
+<hr>
+<form class='well' action='' method='GET'>
+	
+	<h3>Search Cities by County: <input type='text' name='q' id='q' />
+	<button class='btn-primary' type='submit'>search</button></h3>
+
+</form>
+
+<div id="map-canvas"></div>
+
+<ul>
+	{% paginate 20 object_list %}
+	{% for city in object_list %}
+		<li>
+			<a href="/cities/{{ city.pk }}">{{ city }}</a>
+			{{ city.county_name }}
+		</li>
+	{% endfor %}
+</ul>
+
+<div class='pagination'>
+	{% show_pages %}
+</div>
+
+
+{% endblock %}
+
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#q').focus();
+        });
+    </script>
+
+    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
+
+     <script type='text/javascript'>
+     	{% for city in object_list %}
+     		var city{{ forloop.counter }} = new google.maps.LatLng({{ city.primary_latitude }}, {{ city.primary_longitude }});
+     	{% endfor %}
+		  var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+		  var mapOptions = {
+		    zoom: 4,
+		    center: city1,
+		    mapTypeId: google.maps.MapTypeId.ROADMAP
+		  }
+		  var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+
+		  {% for city in object_list %}
+		  	var marker{{ forloop.counter }} = new google.maps.Marker({
+			      position: city{{ forloop.counter }},
+			      map: map,
+			      title:"{{ city.name }} - ({{ city.primary_latitude }}, {{ city.primary_longitude }})"
+			  });
+		  {% endfor %}
+		 
+
+    </script>
+{% endblock %}

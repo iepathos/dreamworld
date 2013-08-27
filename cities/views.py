@@ -19,6 +19,19 @@ class NameSearchMixin(object):
 		# No q is specified so we return queryset
 		return queryset
 
+class CountySearchMixin(object):
+	def get_queryset(self):
+		# Fetch the queryset from the parent's get_queryset
+		queryset = super(CountySearchMixin, self).get_queryset()
+
+		# Get the q GET parameter
+		q = self.request.GET.get("q")
+		if q:
+			# return a filtered queryset
+			return queryset.filter(county_name__icontains=q)
+		# No q is specified so we return queryset
+		return queryset
+
 class CityListView(LoginRequiredMixin, NameSearchMixin, AjaxListView):
 	model = City
 	context_object_name = 'object_list'
@@ -33,3 +46,8 @@ class CityUpdateView(LoginRequiredMixin, UpdateView):
 
 class CityCreateView(LoginRequiredMixin, CreateView):
 	model = City
+
+class City_By_County(LoginRequiredMixin, CountySearchMixin, AjaxListView):
+	model = City
+
+	template_name = 'cities/city_by_county.html'
