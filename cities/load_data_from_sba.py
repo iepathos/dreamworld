@@ -32,25 +32,28 @@ def enter_city_into_db(city_data):
 
 	# This script is really just for loading the data initially. So,
 	# lets check if the entry is there already and move on if it is.
-	if City.objects.get(feature_id=city_data['feature_id']):
-		print 'City already entered in database.'
-	else:
-		new_city = City(county_name=city_data['county_name'], 
-						description=city_data['description'], 
-						feat_class=city_data['feat_class'],
-						feature_id=city_data['feature_id'],
-						fips_class=city_data['fips_class'],
-						fips_county_cd=city_data['fips_county_cd'],
-						full_county_name=city_data['full_county_name'],
-						link_title=city_data['link_title'],
-						url=city_data['url'],
-						name=city_data['name'],
-						primary_latitude=city_data['primary_latitude'],
-						primary_longitude=city_data['primary_longitude'],
-						state_abbreviation=city_data['state_abbreviation'],
-						state_name=city_data['state_name'])
-		print 'Adding', new_city, new_city.state_abbreviation, new_city.feature_id, new_city.primary_latitude, new_city.primary_longitude
-		new_city.save()
+
+	# Originally had this code here because I thought feature_id was unique,
+	# but it isn't.
+	#if City.objects.filter(feature_id=city_data['feature_id']):
+		#print 'City already entered in database.'
+	#else:
+	new_city = City(county_name=city_data['county_name'], 
+					description=city_data['description'], 
+					feat_class=city_data['feat_class'],
+					feature_id=city_data['feature_id'],
+					fips_class=city_data['fips_class'],
+					fips_county_cd=city_data['fips_county_cd'],
+					full_county_name=city_data['full_county_name'],
+					link_title=city_data['link_title'],
+					url=city_data['url'],
+					name=city_data['name'],
+					primary_latitude=city_data['primary_latitude'],
+					primary_longitude=city_data['primary_longitude'],
+					state_abbreviation=city_data['state_abbreviation'],
+					state_name=city_data['state_name'])
+	print 'Adding', new_city, new_city.state_abbreviation, new_city.feature_id, new_city.primary_latitude, new_city.primary_longitude
+	new_city.save()
 
 def enter_cities_into_db(sba_json_data):
 	# enters all cities into the database from the url 
