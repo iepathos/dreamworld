@@ -6,6 +6,7 @@ from .models import City
 import urllib2
 import json
 
+# move this out to settings later
 JSON_DATA_URL = 'http://api.sba.gov/geodata/city_links_for_state_of/CA.json'
 
 def get_json_from_sba():
@@ -34,9 +35,10 @@ def enter_city_into_db(city_data):
 	# lets check if the entry is there already and move on if it is.
 
 	"""
-		Originally had this code here because I thought feature_id was unique,
-		but it isn't.  There is an entry sharing the same feature_id, name,
-		and pretty much everything except a different url.  Feature_ID: 1525
+		Originally had the commented code below here because I thought 
+		feature_id was unique, but it isn't.  There is an entry sharing 
+		the same feature_id, name, and pretty much everything except a 
+		different url.  Feature_ID: 1525
 
 		So, I'm allowing identical entries and counting on the JSON to be
 		accurate.
@@ -67,4 +69,8 @@ def enter_cities_into_db(sba_json_data):
 		enter_city_into_db(city)
 
 def load_sba():
+	"""
+		Run this function from the shell to populate the
+		database with information from the sba data set
+	"""
 	enter_cities_into_db(get_data_from_json(get_json_from_sba()))
