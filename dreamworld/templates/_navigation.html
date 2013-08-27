@@ -2,7 +2,10 @@
 	<div class='container'>
 		<ul class="nav nav-pills">
 			<li><a href="{% url 'city_list' %}">List of Cities</a></li>
-			<li><a href="/login">{% if user.is_authenticated %}Admin{% else %}Login{% endif %}</a></li>
+			<li><a href="
+				{% if user.is_authenticated %}/admin">Admin
+				{% else %}/login">Login
+				{% endif %}</a></li>
 
 			{% if user.is_authenticated %}
 				<li><a href="/logout">Logout</a></li>
