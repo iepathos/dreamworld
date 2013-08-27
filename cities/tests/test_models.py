@@ -22,9 +22,16 @@ class CityTests(TestCase):
 								state_abbreviation='CA',
 								state_name='California')
 
+	def test_detail(self):
+		test_city = City(name='A City Name')
+
+		self.assertEquals(test_city.county_name, 'A County Name')
+		self.assertEquals(test_city.description, 'A City description - probably null')
+		self.assertEquals(test_city.feat_class, 'A Feat Class')
+
 	def test_create(self):
 		test_city = City(name='Another City Name')
-		self.assertEquals(test_city.name='Another City Name')
+		self.assertEquals(test_city.name, 'Another City Name')
 
 	def test_update(self):
 		test_city = City.objects.get(name='A City Name')
