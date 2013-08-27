@@ -36,14 +36,19 @@
             	<h1>Django/Python Technical Test for Dreamworld</h1>
             </div>
 
-    
+    		<nav>
+	    		<ul>
+	    			<li><a href="{% url 'city_list' %}">List of Cities</a></li>
+	    			<li><a href="/admin">{% if user.is_authenticated %}Admin{% else %}Login{% endif %}</a></li>
+	    		</ul>
+    		</nav>
         </header>
         <div class='container'>
-			{% block body %}{% endblcogok %}
+			{% block body %}{% endblock %}
 		</div>
 
 		</div>
 
 </body>
-
+{% include '_footer.html' %}
 </html>
