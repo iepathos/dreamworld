@@ -12,3 +12,6 @@ class CityDetailView(LoginRequiredMixin, DetailView):
 
 class CityUpdateView(LoginRequiredMixin, UpdateView):
 	model = City
+
+class CityCreateView(LoginRequiredMixin, CreateView):
+	model = City
