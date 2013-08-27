@@ -2,9 +2,20 @@
 
 {% load url from future %}
 
+{% block head_title %}
+	List of Cities
+{% endblock %}
+
 {% block body %}
-<h1>Cities</h1>
+<h1>List of Cities</h1>
 <hr>
+<form class='well' action='' method='GET'>
+	
+	<h3>Search Cities by Name: <input type='text' name='q' id='q' />
+	<button class='btn-primary' type='submit'>search</button></h3>
+
+</form>
+
 <ul>
 	{% for city in object_list %}
 		<li>
@@ -12,4 +23,13 @@
 		</li>
 	{% endfor %}
 </ul>
+{% endblock %}
+
+
+{% block extra_js %}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#q').focus();
+        });
+    </script>
 {% endblock %}

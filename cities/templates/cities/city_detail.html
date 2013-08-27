@@ -2,6 +2,10 @@
 
 {% load url from future %}
 
+{% block head_title %}
+	City of {{ city.name }}
+{% endblock %}
+
 {% block body %}
 <h1>{{ city.name }}, {{ city.state_abbreviation }}</h1>
 <hr>

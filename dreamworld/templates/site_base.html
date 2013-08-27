@@ -51,4 +51,42 @@
 
 </body>
 {% include '_footer.html' %}
+
+{% block javascript %}
+	<script type="text/javascript" src="{% block jquery_src %}//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js{% endblock %}"></script>
+	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.1/jquery-ui.min.js"></script>
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'js/jquery.nicescroll.min.js' %}"></script>
+    
+    <!-- Activate NiceScroll -->
+    <script type='text/javascript'>
+        $(document).ready(function() {
+                $("html").niceScroll();
+            });
+    </script>
+
+    <!-- Scroll up icon -->
+    <a class='scrollup' href="#">Scroll</a>
+    <script type='text/javascript'>
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('.scrollup').fadeIn();
+            } else {
+                $('.scrollup').fadeOut();
+            }
+        });
+
+        $('.scrollup').click(function() {
+            $("html, body").animate({
+                scrollTop: 0
+            }, 200);
+            return false;
+        });
+    </script>
+
+	{% block extra_js %}{% endblock %}
+{% endblock %}
 </html>
