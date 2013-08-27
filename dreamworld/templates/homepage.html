@@ -4,8 +4,11 @@
 <div class='hero-unit'>
 	<h1>Welcome, Dreamworld!</h1>
 	<p>This is the Django/Python Web App made by Glen Baker for the Dreamworld technical test</p>
+	<p>This site is using the built-in Django user management as outlined in the test - so you can login at '/admin' or by clicking on Login above.  Either way, you'll be automatically redirected to the Django admin interface.  You can peruse the city data from there, but you'll want to come back to list of cities.</p>
 
-	<p>To load the data from JSON I wrote the script, cities/load_data_from_sba.py</p>
-	<p>I execute load_data_from_sba from the Django shell</p>
+	<li>To load the data from JSON I wrote the script, cities/load_data_from_sba.py</li>
+	<li>city_list has a basic search bar for filtering through the names of the cities</li>
+
+	<li>city_detail template displays all of the city's information as well as a Google Map centered on the coordinates.</li>
 </div>
 {% endblock %}

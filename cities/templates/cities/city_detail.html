@@ -11,9 +11,9 @@
 {% endblock %}
 
 {% block body %}
-<div class='span5'>
 <h1>{{ city.name }}, {{ city.state_abbreviation }}</h1>
 <hr>
+<div class='span5'>
 <ul>
 	<li>County Name: {{ city.county_name }}</li>
 	{% if city.description %}<li>Description: {{ city.description }}</li>{% endif %}

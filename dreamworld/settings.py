@@ -2,6 +2,7 @@
 import os
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
+TESTING = True
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -114,7 +115,7 @@ INSTALLED_APPS = (
     'cities',
 )
 
-LOGIN_URL = '/admin'
+#LOGIN_URL = '/admin'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
@@ -148,3 +149,16 @@ LOGGING = {
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
 DATABASES['default'] =  dj_database_url.config(default='postgres://ebkklfquajomiq:pzUho6skMVb4amCxhI1GlTD7tN@ec2-54-227-238-31.compute-1.amazonaws.com:5432/de8f655u3kufvu')
+
+if TESTING == True:
+    ########## IN-MEMORY TEST DATABASE
+    DATABASES = {
+        "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": ":memory:",
+        "USER": "",
+        "PASSWORD": "",
+        "HOST": "",
+        "PORT": "",
+        },
+    }

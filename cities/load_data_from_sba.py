@@ -33,8 +33,14 @@ def enter_city_into_db(city_data):
 	# This script is really just for loading the data initially. So,
 	# lets check if the entry is there already and move on if it is.
 
-	# Originally had this code here because I thought feature_id was unique,
-	# but it isn't.
+	"""
+		Originally had this code here because I thought feature_id was unique,
+		but it isn't.  There is an entry sharing the same feature_id, name,
+		and pretty much everything except a different url.  Feature_ID: 1525
+
+		So, I'm allowing identical entries and counting on the JSON to be
+		accurate.
+	"""
 	#if City.objects.filter(feature_id=city_data['feature_id']):
 		#print 'City already entered in database.'
 	#else:

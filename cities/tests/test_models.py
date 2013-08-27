@@ -1,8 +1,9 @@
+import json
+
+from django.core.urlresolvers import reverse
 from django.test import TestCase
 
 from cities.models import City
-
-import json
 
 class CityTests(TestCase):
 	def setUp(self):
@@ -20,9 +21,6 @@ class CityTests(TestCase):
 								primary_longitude='40',
 								state_abbreviation='CA',
 								state_name='California')
-
-	def test_detail(self):
-		pass
 
 	def test_create(self):
 		test_city = City(name='Another City Name')
