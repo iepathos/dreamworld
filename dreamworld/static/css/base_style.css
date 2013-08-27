@@ -24,13 +24,9 @@
     background: url('../img/icon_top_orange.png') no-repeat;
 }
 
-.nav-breaker {
-    border-bottom: .5em solid #231f20;
-
-    padding: 0;
-    margin-top: -30px;
+body {
+    background: url('../img/white_subtle_texture.jpg') repeat;
 }
-
 
 html, body {
 	height: 100%;
@@ -45,6 +41,12 @@ footer {
 	height: 60px;
 }
 
+#map-canvas {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    height: 400px;
+}
 /*
 	Nav UI Styling
 */
