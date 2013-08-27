@@ -3,14 +3,18 @@
 {% block body %}
 <div class='hero-unit'>
 	<h1>Welcome, Dreamworld!</h1>
-	<p>This is the Django/Python Web App made by Glen Baker for the Dreamworld technical test</p>
-	<p>This site is using the built-in Django user management as outlined in the test - so you can login at '/admin' or by clicking on Login above.  You can peruse the city data from there, but you'll want to come back to list of cities.</p>
+	<p>This is the Django/Python Web App made by <a href='http://linkedin.com/in/glenbbaker'>Glen Baker</a> for the Dreamworld technical exam.</p>
+	<p>Please peruse the code on <a href='https://github.com/iepathos/dreamworld/'>github/iepathos/dreamworld</a></p>
 
-	<li>To load the data from JSON I wrote <a href='https://github.com/iepathos/dreamworld/blob/master/cities/load_data_from_sba.py'>cities/load_data_from_sba.py</a></li>
+	<p>
+		An oddity within the data set I found was that the feature_id wasn't unique. There are 2 entries for the same coordinates differing only in the url they link to.
+	</p>
+
+	<li>To load the data from sba URL I wrote <a href='https://github.com/iepathos/dreamworld/blob/master/cities/load_data_from_sba.py'>cities/load_data_from_sba.py</a></li>
 	<li><a href='https://github.com/iepathos/dreamworld/blob/master/cities/templates/cities/city_list.html'>city_list</a> has a basic search bar for filtering through the names of the cities</li>
 
 	<li><a href='https://github.com/iepathos/dreamworld/blob/master/cities/templates/cities/city_detail.html'>city_detail</a> displays all of the city's information as well as a Google Map centered on the coordinates.</li>
 
 	<li>Added some basic testing to the cities app <a href='https://github.com/iepathos/dreamworld/blob/master/cities/tests.py'>cities/tests.py</a></li>
-	<li>Added pagination to city_list for better scalability.</li>
+	<li>Added pagination to city_list with AjaxListView from django endless pagination</li>
 {% endblock %}
