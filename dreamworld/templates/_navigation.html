@@ -2,7 +2,7 @@
 	<div class='container'>
 		<ul class="nav nav-pills">
 			<li><a href="{% url 'city_list' %}">List of Cities</a></li>
-			<li><a href="{% url 'county_view' %}">List Cities by County</li>
+			<li><a href="{% url 'county_view' %}">List Cities by County</a></li>
 			<li><a href="
 				{% if user.is_authenticated %}/admin">Admin
 				{% else %}/login">Login
