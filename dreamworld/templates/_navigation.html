@@ -1,0 +1,14 @@
+{% load url from future %}
+
+{% block nav %}
+	<div class='container'>
+		<ul class="nav nav-pills">
+			<li><a href="{% url 'city_list' %}">List of Cities</a></li>
+			<li><a href="/admin">{% if user.is_authenticated %}Admin{% else %}Login{% endif %}</a></li>
+
+			{% if user.is_authenticated %}
+				<li><a href='{% url 'admin:logout' %}'>Logout</a></li>
+			{% endif %}
+		</ul>
+	</div>
+{% endblock %}

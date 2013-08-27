@@ -1,7 +1,7 @@
 {% load staticfiles %}
 {% load url from future %}
 <!DOCTYPE html>
-<html lang="{{ LANGUAGE_CODE }}">
+<html lang="en-us">
     <head>
         <meta charset="utf-8" />
         <title>{% block head_title_base %}{% if SITE_NAME %}{{ SITE_NAME }} | {% endif %}{% block head_title %}{% endblock %}{% endblock %}</title>
@@ -36,13 +36,8 @@
             	<h1>Django/Python Technical Test for Dreamworld</h1>
             </div>
 
-    		<nav>
-	    		<ul>
-	    			<li><a href="{% url 'city_list' %}">List of Cities</a></li>
-	    			<li><a href="/admin">{% if user.is_authenticated %}Admin{% else %}Login{% endif %}</a></li>
-	    		</ul>
-    		</nav>
         </header>
+        {% include '_navigation.html' %}
         <div class='container'>
 			{% block body %}{% endblock %}
 		</div>
