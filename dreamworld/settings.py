@@ -147,4 +147,4 @@ LOGGING = {
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config(default='postgres://eweatwbnljbzpj:vfgpwAvYs1bd1SMDg12rHsTbid@ec2-54-221-240-24.compute-1.amazonaws.com:5432/d3emctlnqkea80')
+DATABASES['default'] =  dj_database_url.config(default='postgres://ebkklfquajomiq:pzUho6skMVb4amCxhI1GlTD7tN@ec2-54-227-238-31.compute-1.amazonaws.com:5432/de8f655u3kufvu')
