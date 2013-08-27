@@ -1,0 +1,7 @@
+Project Notes
+
+HEROKU_POSTGRESQL_GREEN connected for development
+HEROKU_POSTGRESQL_GREEN_URL: postgres://ekylqmtwsuawln:OH3JC_isrkNJKWc8-X20vj78-F@ec2-54-221-203-200.compute-1.amazonaws.com:5432/d7rrkq2qpdv67a
+
+HEROKU_POSTGRESQL_TEAL created for production
+HEROKU_POSTGRESQL_TEAL_URL:  postgres://hrubdhfmizqttb:PZpxmxOzFRPrHl-Ip-AigxjECv@ec2-107-20-164-164.compute-1.amazonaws.com:5432/dh0o2657883us
