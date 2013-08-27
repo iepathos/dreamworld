@@ -1,0 +1,16 @@
+{% extends 'site_base.html' %}
+
+
+{% block extra_js %}
+    {{ block.super }}
+    <script src="/static/js/endless.js" type="text/javascript" charset="utf-8"></script>
+{% endblock %}
+
+{% block body %} 
+
+<div class="endless_page_template">
+
+    {% include page_template %}
+</div>
+
+{% endblock %}

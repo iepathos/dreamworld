@@ -6,9 +6,11 @@
 	<p>This is the Django/Python Web App made by Glen Baker for the Dreamworld technical test</p>
 	<p>This site is using the built-in Django user management as outlined in the test - so you can login at '/admin' or by clicking on Login above.  You can peruse the city data from there, but you'll want to come back to list of cities.</p>
 
-	<li>To load the data from JSON I wrote the script, cities/load_data_from_sba.py</li>
-	<li>city_list has a basic search bar for filtering through the names of the cities</li>
+	<li>To load the data from JSON I wrote <a href='https://github.com/iepathos/dreamworld/blob/master/cities/load_data_from_sba.py'>cities/load_data_from_sba.py</a></li>
+	<li><a href='https://github.com/iepathos/dreamworld/blob/master/cities/templates/cities/city_list.html'>city_list</a> has a basic search bar for filtering through the names of the cities</li>
 
-	<li>city_detail template displays all of the city's information as well as a Google Map centered on the coordinates.</li>
-</div>
+	<li><a href='https://github.com/iepathos/dreamworld/blob/master/cities/templates/cities/city_detail.html'>city_detail</a> displays all of the city's information as well as a Google Map centered on the coordinates.</li>
+
+	<li>Added some basic testing to the cities app</li>
+	<li>Added pagination to city_list for better scalability.</li>
 {% endblock %}

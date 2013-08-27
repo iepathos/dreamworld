@@ -86,6 +86,11 @@ TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
 
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
+TEMPLATE_CONTEXT_PROCESSORS += (
+    'django.core.context_processors.request',
+)
+
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -97,6 +102,7 @@ INSTALLED_APPS = (
     'south',
     'core',
     'cities',
+    'endless_pagination',
 )
 
 LOGIN_URL = '/login/'

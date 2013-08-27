@@ -1,6 +1,6 @@
 {% extends 'site_base.html' %}
 
-{% load url from future %}
+{% load endless %}
 
 {% block head_title %}
 	List of Cities
@@ -17,12 +17,17 @@
 </form>
 
 <ul>
+	{% paginate 20 object_list %}
 	{% for city in object_list %}
 		<li>
 			<a href="/cities/{{ city.pk }}">{{ city }}</a>
 		</li>
 	{% endfor %}
 </ul>
+
+<div class='pagination'>
+	{% show_pages %}
+</div>
 {% endblock %}
 
 
@@ -32,4 +37,6 @@
             $('#q').focus();
         });
     </script>
+
+    <script src="{{ STATIC_URL }}endless_pagination/js/endless-pagination.js"></script>
 {% endblock %}
