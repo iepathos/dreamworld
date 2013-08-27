@@ -1,0 +1,26 @@
+{% extends 'site_base.html' %}
+
+{% load url from future %}
+
+{% block body %}
+<h1>{{ city.name }}, {{ city.state_abbreviation }}</h1>
+<hr>
+<ul>
+	<li>County Name: {{ city.county_name }}</li>
+	{% if city.description %}<li>Description: {{ city.description }}</li>{% endif %}
+	<li>Feat Class: {{ city.feat_class }}</li>
+	<li>Feature ID: {{ city.feature_id }}</li>
+	<li>FIPS Class: {{ city.fips_class }}</li>
+	<li>FIPS County CD: {{ city.fips_county_cd }}</li>
+	<li>Full County Name: {{ city.full_county_name }}</li>
+	<li>Link Title: {{ city.link_title }}</li>
+	{% if city.url %}<li>URL: <a href='{{ city.url }}'>{{ city.url }}</a></li>{% endif %}
+	<li>Name: {{ city.name }}</li>
+	<li>Primary Latitude: {{ city.primary_latitude }}</li>
+	<li>Primary Longitude: {{ city.primary_longitude }}</li>
+	<li>State Abbreviation: {{ city.state_abbreviation }}</li>
+	<li>State Name: {{ city.state_name }}</li>
+</ul>
+
+<a href="{% url 'city_list' %}">Back to List of Cities</a>
+{% endblock %}

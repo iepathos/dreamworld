@@ -52,14 +52,8 @@ USE_L10N = True
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
 
-# Absolute filesystem path to the directory that will hold user-uploaded files.
-# Example: "/var/www/example.com/media/"
 MEDIA_ROOT = ''
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://example.com/media/", "http://media.example.com/"
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 # Static asset configuration
 
@@ -116,6 +110,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'south',
+
+    'cities',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -149,4 +145,4 @@ LOGGING = {
 
 # Parse database configuration from $DATABASE_URL
 import dj_database_url
-DATABASES['default'] =  dj_database_url.config(default='postgres://ekylqmtwsuawln:OH3JC_isrkNJKWc8-X20vj78-F@ec2-54-221-203-200.compute-1.amazonaws.com:5432/d7rrkq2qpdv67a')
+DATABASES['default'] =  dj_database_url.config(default='postgres://eweatwbnljbzpj:vfgpwAvYs1bd1SMDg12rHsTbid@ec2-54-221-240-24.compute-1.amazonaws.com:5432/d3emctlnqkea80')
