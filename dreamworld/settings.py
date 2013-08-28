@@ -38,11 +38,11 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-MEDIA_ROOT = ''
+# Static asset configuration
+MEDIA_ROOT = '/var/www/media'
 MEDIA_URL = '/media/'
 
-# Static asset configuration
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = '/var/www/static'
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = (
