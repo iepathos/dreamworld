@@ -3,15 +3,23 @@
 # This script is to setup a working environment for the
 # app on AWS EC2
 
-ssh -i amazonaws.pem ubuntu@ec2-youraddress.compute-1.amazonaws.com
+# These environment variables are used on my end with ec2-api-tools
+export EC2_KEYPAIR=dreamworld
+export EC2_URL=https://ec2.us-west-1.amazonaws.com
+export EC2_PRIVATE_KEY=$HOME/jujubox/ec2/pk-N4N2HUPNB2OD7O6RSSYDEYTYLNBMPWWW.pem
+export EC2_CERT=$HOME/jujubox/ec2/cert-N4N2HUPNB2OD7O6RSSYDEYTYLNBMPWWW.pem
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
 
+ssh -i dreamworld.pem ubuntu@54.215.190.18
+
+# Bring OS up to speed
 sudo apt-get update
 sudo apt-get upgrade
 
 # Essential Code Base
 sudo apt-get install apache2 libapache2-mod-wsgi
 
-sudo apt-get install python-pip
+sudo apt-get install python-pip python-setuptools
 
 # Virtualenv setup and my favorite wrapper
 # Because this is the only app I will have on aws, 
