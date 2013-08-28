@@ -28,7 +28,7 @@
 	{% for city in object_list %}
 		<li>
 			<a href="/cities/{{ city.pk }}">{{ city }}</a>
-			{{ city.county_name }}
+			{{ city.county_name }} ({{ city.primary_latitude }}, {{ city.primary_longitude }})
 		</li>
 	{% endfor %}
 </ul>

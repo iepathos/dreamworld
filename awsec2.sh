@@ -13,11 +13,16 @@ sudo apt-get install apache2 libapache2-mod-wsgi
 
 sudo apt-get install python-pip
 
-# Virtualenv setup
-#sudo pip install virtualenv
+# Virtualenv setup and my favorite wrapper
+# Because this is the only app I will have on aws, 
+# I'm skipping virtualenv setup
+#sudo pip install virtualenv virtualenvwrapper
 
 # PostgreSQL
-sudo apt-get install postgresql python-psycopg2
+# I'm using dj_database_url to connect to a postgresql
+# database remotely.  Very handy for swapping from
+# dev to production databases with everything in the cloud
+#sudo apt-get install postgresql python-psycopg2
 
 # Clone the repo from my git
 sudo apt-get install git
