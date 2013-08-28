@@ -2,7 +2,6 @@
 # Install script for Dreamworld Tech exam Django/Python
 # This script is to setup a working environment for the
 # app on AWS EC2
-# Written by Glen Baker - iepathos@gmail.com
 
 ssh -i amazonaws.pem ubuntu@ec2-youraddress.compute-1.amazonaws.com
 
@@ -51,7 +50,16 @@ sudo chown www-data media/
 cd /dreamworld
 sudo pip install -r requirements.txt
 
+# Usually not set as executable after git cloning I find
 sudo chmod +x manage.py
+
+# Sync up with the database 
 python manage.py syncdb
+
+# Move static files to /var/www/static for Apache to serve up
 python manage.py collectstatic
+
+# Test
+python manage.py test
+
 
