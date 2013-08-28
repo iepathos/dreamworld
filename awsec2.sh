@@ -32,10 +32,11 @@ sudo apt-get install python-pip python-setuptools
 # database remotely.  Very handy for swapping from
 # dev to production databases with everything in the cloud
 #sudo apt-get install postgresql python-psycopg2
+sudo apt-get install python-psycopg2
 
 # Clone the repo from my git
 sudo apt-get install git
-git clone git@github.com:iepathos/dreamworld.git
+git clone http://github.com/iepathos/dreamworld.git
 
 # Tell Apache where the WSGI is at
 echo "WSGIScriptAlias / /home/ubuntu/dreamworld/dreamworld/wsgi.py" | sudo tee -a /etc/apache2/httpd.conf
