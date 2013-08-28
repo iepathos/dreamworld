@@ -45,16 +45,18 @@ cd /dreamworld
 sudo pip install -r requirements.txt
 
 # Tell Apache where the WSGI is at
-echo "WSGIScriptAlias / /home/ubuntu/dreamworld/dreamworld/wsgi.py" | sudo tee -a /etc/apache2/httpd.conf
-echo "WSGIPythonPath /home/ubuntu/dreamworld/dreamworld" | sudo tee -a /etc/apache2/httpd.conf
-echo "<Directory /home/ubuntu/dreamworld/dreamworld>" | sudo tee -a /etc/apache2/httpd.conf
-echo "<Files wsgi.py>" | sudo tee -a /etc/apache2/httpd.conf
-echo "Order deny,allow" | sudo tee -a /etc/apache2/httpd.conf
-echo "Allow from all" | sudo tee -a /etc/apache2/httpd.conf
-echo "</Files>" | sudo tee -a /etc/apache2/httpd.conf
-echo "</Directory>" | sudo tee -a /etc/apache2/httpd.conf
+#echo "WSGIScriptAlias / /home/ubuntu/dreamworld/dreamworld/wsgi.py" | sudo tee -a /etc/apache2/httpd.conf
+#echo "WSGIPythonPath /home/ubuntu/dreamworld/dreamworld" | sudo tee -a /etc/apache2/httpd.conf
+#echo "<Directory /home/ubuntu/dreamworld/dreamworld>" | sudo tee -a /etc/apache2/httpd.conf
+#echo "<Files wsgi.py>" | sudo tee -a /etc/apache2/httpd.conf
+#echo "Order deny,allow" | sudo tee -a /etc/apache2/httpd.conf
+#echo "Allow from all" | sudo tee -a /etc/apache2/httpd.conf
+#echo "</Files>" | sudo tee -a /etc/apache2/httpd.conf
+#echo "</Directory>" | sudo tee -a /etc/apache2/httpd.conf
 
-echo "Include httpd.conf" | sudo tee -a /etc/apache2/apache2.conf
+#echo "Include httpd.conf" | sudo tee -a /etc/apache2/apache2.conf
+
+# Ended up using different conf see dreamworldapache.conf and django.wsgi
 
 # Restart apache
 sudo service apache2 restart
