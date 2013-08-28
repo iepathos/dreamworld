@@ -22,6 +22,8 @@ sudo apt-get install apache2 libapache2-mod-wsgi
 
 sudo apt-get install python-pip python-setuptools
 
+sudo apt-get install libpq-dev python-dev
+
 # Virtualenv setup and my favorite wrapper
 # Because this is the only app I will have on aws, 
 # I'm skipping virtualenv setup
@@ -37,6 +39,10 @@ sudo apt-get install python-psycopg2
 # Clone the repo from my git
 sudo apt-get install git
 git clone http://github.com/iepathos/dreamworld.git
+
+# Install Django App requirements
+cd /dreamworld
+sudo pip install -r requirements.txt
 
 # Tell Apache where the WSGI is at
 echo "WSGIScriptAlias / /home/ubuntu/dreamworld/dreamworld/wsgi.py" | sudo tee -a /etc/apache2/httpd.conf
@@ -61,18 +67,15 @@ sudo mkdir media
 sudo chown www-data static/
 sudo chown www-data media/
 
-# Install Django App requirements
-cd /dreamworld
-sudo pip install -r requirements.txt
-
-# Usually not set as executable after git cloning I find
-sudo chmod +x manage.py
+# Sometimes this isn't set as executable after git cloning I find
+# Ended up not being the case for me here.
+#sudo chmod +x manage.py
 
 # Sync up with the database 
 python manage.py syncdb
 
 # Move static files to /var/www/static for Apache to serve up
-python manage.py collectstatic
+sudo python manage.py collectstatic
 
 # Test
 python manage.py test
