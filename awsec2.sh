@@ -10,7 +10,8 @@ export EC2_PRIVATE_KEY=$HOME/jujubox/ec2/pk-N4N2HUPNB2OD7O6RSSYDEYTYLNBMPWWW.pem
 export EC2_CERT=$HOME/jujubox/ec2/cert-N4N2HUPNB2OD7O6RSSYDEYTYLNBMPWWW.pem
 export JAVA_HOME=/usr/lib/jvm/java-6-openjdk/
 
-ssh -i dreamworld.pem ubuntu@54.215.190.18
+# SSH to server
+#ssh -i dreamworld.pem ubuntu@54.215.190.18
 
 # Bring OS up to speed
 sudo apt-get update
